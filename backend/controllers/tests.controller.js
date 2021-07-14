@@ -1,6 +1,8 @@
+const testService = require('./../services/tests.service')
 class TestsController {
     async createTest(req, res) {
-
+        const newTest = await testService.createNewTest(req.body)
+        res.send(newTest)
     }
 
     async getTests(req, res) {

@@ -15,6 +15,14 @@ const User = db.define('user', {
         type: Sequelize.DataTypes.STRING,
         allowNull: false
     },
+    is_activated: {
+        type: Sequelize.DataTypes.BOOLEAN,
+        allowNull: false
+    },
+    activation_link: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false
+    }
 })
 
 module.exports = User

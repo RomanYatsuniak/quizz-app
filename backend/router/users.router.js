@@ -1,12 +1,11 @@
 const Router = require('express').Router
 const usersRouter = new Router()
 const passport = require('passport')
-const User = require('./../models/User.model')
-const Test = require('./../models/Test.model')
-usersRouter.post('/registration')
-usersRouter.post('/login')
-usersRouter.get('/refresh')
-usersRouter.get('/activate/:link')
-usersRouter.get('/password')
+const UsersController = require('./../controllers/users.controller')
+usersRouter.post('/registration', UsersController.register)
+usersRouter.post('/login', UsersController.login)
+usersRouter.get('/refresh', passport.authenticate('jwt', {session: false}), UsersController.updateToken)
+usersRouter.get('/activate/:link', UsersController.activateEmail)
+usersRouter.get('/password', passport.authenticate('jwt', {session: false}), UsersController.passwordReset)
 
 module.exports = usersRouter

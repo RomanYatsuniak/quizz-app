@@ -1,4 +1,6 @@
 require('dotenv').config()
+require('./middlewares/passport')
+require('./services/email.service')
 const path = require('path')
 const express = require('express')
 const cors = require('cors');
@@ -17,7 +19,7 @@ app.use('/api', router)
 async function start() {
     await sequelize.authenticate()
     await sequelize.sync({force: true})
-    app.listen(PORT, () => console.log('Listen on port' + PORT))
+    app.listen(PORT, () => console.log('Listen on port ' + PORT))
 }
 
 start()

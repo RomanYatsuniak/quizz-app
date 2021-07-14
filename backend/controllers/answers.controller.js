@@ -4,6 +4,9 @@ class AnswersController {
     }
 
     async getAllAnswersByTestId(req, res) {
+        const testId = res.params.id
 
     }
 }
+
+module.exports = new AnswersController()
