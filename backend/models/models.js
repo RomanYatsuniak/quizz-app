@@ -11,7 +11,7 @@ CompletedTest.belongsTo(User)
 Question.hasMany(Answer)
 Question.belongsTo(Test)
 
-Answer.hasMany(UserAnswers)
+Answer.belongsToMany(User, {through: UserAnswers})
 Answer.belongsTo(Question)
 
 Test.hasMany(Question)
@@ -20,10 +20,9 @@ Test.belongsTo(User)
 
 User.hasMany(Test)
 User.hasMany(CompletedTest)
-User.hasMany(UserAnswers)
+User.belongsToMany(Answer, {through: UserAnswers})
 
-UserAnswers.belongsTo(User)
-UserAnswers.belongsTo(Answer)
+
 
 module.exports = {
     Answer,

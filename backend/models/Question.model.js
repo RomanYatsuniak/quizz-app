@@ -23,9 +23,6 @@ const Question = db.define('question', {
     order: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false
-    },
-    test_id: {
-        type: Sequelize.DataTypes.STRING
     }
 })
 

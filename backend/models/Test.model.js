@@ -12,7 +12,12 @@ const Test = db.define('test', {
         allowNull: false
     },
     created_at: {
-        type: Sequelize.DataTypes.STRING
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false
+    },
+    completed: {
+        type: Sequelize.DataTypes.BOOLEAN,
+        allowNull: false
     }
 })
 
